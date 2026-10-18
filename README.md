@@ -73,8 +73,8 @@ Publishing notes:
 
 - GitHub Pages: deploy from branch `main`, folder `/docs` (repo Settings → Pages).
 - DNS: `kenjapdf.kofukuai.com` CNAME → `KenjaHub.github.io`.
-- When the app goes live on the App Store, replace the "Coming soon" CTA in `index.html` / `zh.html` with the App Store badge (see KenjaSub-Site for the pattern).
-- Add a Google Search Console verification file to `docs/` when claiming the domain.
+- When the app goes live on the App Store, replace the "Coming soon" CTA in `index.html` / `zh.html` / `ja.html` with the App Store badge (see KenjaSub-Site for the pattern).
+- Google Search Console verification: `docs/google6b6daf8cbba65014.html` (same account token as KenjaSub) — verify once the domain is live.
 
 ## 中文介绍
 
