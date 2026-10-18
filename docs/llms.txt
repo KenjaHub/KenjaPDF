@@ -1,0 +1,22 @@
+# KenjaPDF
+
+> KenjaPDF is a minimal PDF reader with on-device translation for Mac, made by KenjaHub. Drop in a PDF, tap once, and read the original side by side with its translation — scrolling in sync, original layout preserved, translated entirely on device with Apple's system engine. No account, no upload, no tracking (App Store privacy label: Data Not Collected). Coming soon to the Mac App Store.
+
+Key facts:
+
+- Platform: macOS. On-device translation requires macOS 26 or later (Apple's Translation framework); reading, outline and export run on macOS 13 and later.
+- Languages: 20+ target languages via macOS system translation; source language is auto-detected, target defaults to the system language. A small one-time language pack may be downloaded by macOS.
+- Layout: each translated paragraph is drawn back into its original rectangle; geometry, margins and vector graphics stay intact. Math-heavy lines (LaTeX, MathType, Cambria Math) are detected and kept untouched.
+- Views: side-by-side with synchronized scrolling and zoom mirroring; one button cycles side-by-side / translation-only / original-only.
+- Export: translation-only PDF, or an alternating bilingual PDF (original page, translated page).
+- Scanned PDFs: not translatable in v1 — a text layer is required (run OCR first).
+- Privacy: everything runs locally on device; no accounts, no API keys, no analytics, no telemetry; the app itself initiates no network traffic.
+- Vendor: KenjaHub — https://github.com/KenjaHub · Support: https://github.com/KenjaHub/KenjaPDF/issues · Email: kenjasoft@kofukuai.com
+
+## Pages
+
+- [English landing page](https://kenjapdf.kofukuai.com/): features, workflow, privacy and FAQ.
+- [简体中文落地页](https://kenjapdf.kofukuai.com/zh.html): 功能、工作流、隐私与常见问题。
+- [日本語ページ](https://kenjapdf.kofukuai.com/ja.html): 機能、ワークフロー、プライバシーと FAQ。
+- [Privacy policy](https://kenjapdf.kofukuai.com/privacy.html): full policy (Data Not Collected; trilingual Markdown copy in the repository as privacy.md).
+- [Sitemap](https://kenjapdf.kofukuai.com/sitemap.xml): all pages with en/zh/ja hreflang alternates.

@@ -75,6 +75,7 @@ Publishing notes:
 - DNS: `kenjapdf.kofukuai.com` CNAME → `KenjaHub.github.io`.
 - When the app goes live on the App Store, replace the "Coming soon" CTA in `index.html` / `zh.html` / `ja.html` with the App Store badge (see KenjaSub-Site for the pattern).
 - Google Search Console verification: `docs/google6b6daf8cbba65014.html` (same account token as KenjaSub) — verify once the domain is live.
+- `docs/llms.txt`: LLM-facing site summary (llmstxt.org convention) served at the site root.
 
 ## 中文介绍
 
