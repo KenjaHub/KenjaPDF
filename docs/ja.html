@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KenjaPDF — Mac の PDF リーダー＆翻訳 · 原文と訳文を並べて読む対訳リーダー</title>
+<meta name="description" content="KenjaPDF は、翻訳を内蔵した Mac 用ミニマル PDF リーダー。書類をドロップしてワンタップ——原文と訳文が並び、スクロールは同期、レイアウトは保持。翻訳はすべて端末上で完結。アカウント不要・アップロードなし・追跡なし。">
+<link rel="canonical" href="https://kenjapdf.kofukuai.com/ja.html">
+<link rel="alternate" hreflang="en" href="https://kenjapdf.kofukuai.com/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kenjapdf.kofukuai.com/zh.html">
+<link rel="alternate" hreflang="ja" href="https://kenjapdf.kofukuai.com/ja.html">
+<link rel="alternate" hreflang="x-default" href="https://kenjapdf.kofukuai.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KenjaPDF">
+<meta property="og:title" content="KenjaPDF — Mac の PDF リーダー＆翻訳">
+<meta property="og:description" content="端末上翻訳を内蔵したミニマルな PDF リーダー。原文と訳文の二段組・スクロール同期・レイアウト保持。アカウントなし、アップロードなし、追跡なし。">
+<meta property="og:url" content="https://kenjapdf.kofukuai.com/ja.html">
+<meta property="og:image" content="https://kenjapdf.kofukuai.com/assets/dual.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e0c10">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0c10'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23f0b429' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Noto+Sans+JP:wght@400;500;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "KenjaPDF",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "macOS 26",
+  "inLanguage": "ja",
+  "description": "Mac 用ミニマル PDF リーダー（端末上翻訳内蔵）：サムネイル・アウトライン・自由ズームで読み、Apple のシステムエンジンで 20 以上の言語に翻訳。原文と訳文が同期スクロールで並び、レイアウトと数式は保持。訳文 PDF / バイリンガル PDF を書き出せます。",
+  "url": "https://kenjapdf.kofukuai.com/ja.html",
+  "author": { "@type": "Organization", "name": "KenjaHub", "url": "https://github.com/KenjaHub" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "KenjaPDF は書類をどこかにアップロードしますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "いいえ。閲覧・レイアウト解析・翻訳はすべて Mac 上で実行され、翻訳には Apple のシステム内蔵エンジンを使用します。アカウントも分析もトラッキングもなく、App Store のプライバシーラベルは「データ収集なし」です。" }
+    },
+    {
+      "@type": "Question",
+      "name": "どの言語に翻訳できますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "macOS のシステム翻訳による 20 以上の言語に対応し、対応リストはシステムから直接取得します。原文言語は自動検出（手動指定も可）で、翻訳先はシステムの優先言語がデフォルト。言語ペアの初回翻訳時に、macOS 自身が小さな言語パックをダウンロードする場合があります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "アカウントや API キーは必要ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "不要です。翻訳には macOS 内蔵のエンジンを使うため、サインインも API キーもサブスクリプションもありません。言語パックがない場合は、システムによる一回限りのダウンロードを案内したうえで再試行します。" }
+    },
+    {
+      "@type": "Question",
+      "name": "元のレイアウトは保持されますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。訳文はページのコピー上で各段落の元の位置に書き戻されるため、ジオメトリ・余白・ベクターグラフィックはそのまま残ります。数式行（LaTeX、MathType、Cambria Math など）は検出してそのまま保持するため、翻訳後も数式は壊れません。" }
+    },
+    {
+      "@type": "Question",
+      "name": "スキャンした PDF にも対応しますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "KenjaPDF が翻訳するのは PDF のテキスト層です。テキストが埋め込まれていない画像のみのスキャンは、このバージョンでは翻訳できません。先に OCR におかけください。" }
+    },
+    {
+      "@type": "Question",
+      "name": "動作環境を教えてください。",
+      "acceptedAnswer": { "@type": "Answer", "text": "オンボード翻訳には Apple の Translation フレームワークを使用するため、macOS 26 以降が必要です。閲覧・アウトライン・書き出しは macOS 13 以降で動作します。" }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --ink:#0e0c10;--ink-2:#16131a;--ink-3:#1e1a23;
+  --line:rgba(240,180,41,.14);--line-2:rgba(255,255,255,.08);
+  --amber:#f0b429;--amber-soft:#f6c453;
+  --paper:#f3efe6;--paper-dim:#b7b2a6;--paper-faint:#7d7971;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Noto Sans JP","Instrument Sans",-apple-system,sans-serif;
+  --mono:"Spline Sans Mono","SF Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:17px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:3;background:radial-gradient(1200px 600px at 50% -10%,rgba(240,180,41,.07),transparent 60%),radial-gradient(900px 700px at 100% 100%,rgba(120,80,200,.05),transparent 55%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E")}
+::selection{background:var(--amber);color:var(--ink)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:4}
+.bar{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(14,12,16,.82);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:22px;height:60px}
+.logo{font-family:var(--serif);font-weight:700;font-size:21px;color:var(--paper);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 14px rgba(240,180,41,.8)}
+.bar nav{margin-left:auto;display:flex;gap:26px;align-items:center}
+.bar nav a{color:var(--paper-dim);text-decoration:none;font-size:14.5px;transition:color .18s}
+.bar nav a:hover{color:var(--amber-soft)}
+.lang-menu{position:relative;font-family:var(--mono);font-size:12.5px}
+.lang-menu summary{list-style:none;cursor:pointer;user-select:none;color:var(--paper-faint);border:1px solid var(--line-2);padding:5px 11px;border-radius:99px;display:inline-flex;align-items:center;gap:7px;transition:all .18s}
+.lang-menu summary::-webkit-details-marker{display:none}
+.lang-menu summary::after{content:"";width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid currentColor;margin-top:2px}
+.lang-menu summary:hover,.lang-menu[open] summary{border-color:var(--amber);color:var(--amber)}
+.lang-pop{position:absolute;right:0;top:calc(100% + 10px);background:var(--ink-3);border:1px solid var(--line-2);border-radius:12px;padding:6px;display:flex;flex-direction:column;min-width:132px;z-index:60;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.lang-pop a{color:var(--paper-dim);text-decoration:none;padding:8px 12px;border-radius:8px;font-size:12.5px;white-space:nowrap;transition:color .15s,background .15s}
+.lang-pop a:hover{background:rgba(240,180,41,.09);color:var(--amber)}
+.lang-pop a[aria-current]{color:var(--amber);pointer-events:none}
+.hero{padding:96px 0 40px}
+.hero .tc{font-family:var(--mono);font-size:12.5px;color:var(--amber);letter-spacing:.14em;display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.hero .tc::after{content:"";height:1px;flex:0 0 72px;background:linear-gradient(90deg,var(--amber),transparent)}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(38px,5.6vw,70px);line-height:1.18;letter-spacing:-.01em;max-width:16ch}
+.hero h1 em{font-style:italic;color:var(--amber);font-weight:500}
+.hero .sub{margin-top:26px;max-width:34em;color:var(--paper-dim);font-size:18px}
+.hero .sub strong{color:var(--paper);font-weight:600}
+.cta-row{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.cta-soon{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:13px 22px;font-size:16px;font-weight:600;color:var(--paper);background:linear-gradient(180deg,rgba(240,180,41,.10),rgba(240,180,41,.03))}
+.cta-soon .tick{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px rgba(240,180,41,.8);animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.cta-note{font-family:var(--mono);font-size:12.5px;color:var(--paper-faint)}
+.screen{margin:64px 0 0;position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line-2);background:linear-gradient(180deg,#191521,#0d0b11);box-shadow:0 40px 120px rgba(0,0,0,.55)}
+.screen img{display:block;width:100%;height:auto;opacity:.92}
+.screen .cap{position:absolute;left:0;right:0;bottom:34px;text-align:center;pointer-events:none}
+.screen .cap span{display:inline-block;background:rgba(8,6,10,.78);border-radius:8px;padding:10px 18px;font-size:clamp(14px,2vw,19px);font-weight:500;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.9);opacity:0;animation:capCycle 12s infinite}
+.screen .cap span:nth-child(2){animation-delay:3s}
+.screen .cap span:nth-child(3){animation-delay:6s}
+.screen .cap span:nth-child(4){animation-delay:9s;color:var(--amber-soft)}
+@keyframes capCycle{0%{opacity:0;transform:translateY(6px)}4%,22%{opacity:1;transform:translateY(0)}26%,100%{opacity:0;transform:translateY(-2px)}}
+.screen .tcode{position:absolute;top:16px;right:18px;font-family:var(--mono);font-size:12px;color:rgba(243,239,230,.75);background:rgba(8,6,10,.55);padding:4px 10px;border-radius:6px;letter-spacing:.06em}
+.screen .rec{position:absolute;top:16px;left:18px;display:flex;gap:8px;align-items:center;font-family:var(--mono);font-size:12px;color:rgba(243,239,230,.7);background:rgba(8,6,10,.55);padding:4px 10px;border-radius:6px}
+.rec i{width:8px;height:8px;border-radius:50%;background:#e5484d;animation:blink 1.6s infinite}
+section{padding:88px 0}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+.sec-head .idx{font-family:var(--mono);font-size:13px;color:var(--amber);letter-spacing:.1em}
+.sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,4vw,40px);letter-spacing:-.01em}
+.sec-lead{color:var(--paper-dim);max-width:38em;margin-bottom:48px;font-size:17.5px}
+.scenes{display:grid;grid-template-columns:1fr;gap:24px}
+.scene{display:grid;grid-template-columns:minmax(300px,4fr) 6fr;gap:38px;align-items:center;border:1px solid var(--line-2);border-radius:16px;padding:34px 32px;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.008));transition:border-color .2s,transform .2s}
+.scene:hover{border-color:rgba(240,180,41,.4);transform:translateY(-3px)}
+.scene .tag{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.12em;margin-bottom:14px;display:block}
+.scene h3{font-family:var(--serif);font-size:22px;font-weight:600;margin-bottom:10px}
+.scene p{color:var(--paper-dim);font-size:15px}
+.scene img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line-2);display:block}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:16px;overflow:hidden}
+.feat{background:var(--ink);padding:32px 30px;transition:background .2s}
+.feat:hover{background:var(--ink-2)}
+.feat .k{font-family:var(--sans);font-size:12.5px;color:var(--amber);letter-spacing:.24em;margin-bottom:12px;display:block}
+.feat h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.feat p{color:var(--paper-dim);font-size:14.5px}
+.privacy-band{border:1px solid var(--line);border-radius:20px;padding:56px 48px;background:radial-gradient(600px 240px at 12% 0%,rgba(240,180,41,.08),transparent 60%),var(--ink-2);display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:center}
+.privacy-band h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.4vw,36px);line-height:1.3}
+.privacy-band h2 em{font-style:italic;color:var(--amber)}
+.privacy-band p{color:var(--paper-dim);margin-top:14px;max-width:34em}
+.pill-list{display:flex;flex-direction:column;gap:12px}
+.pill{display:flex;align-items:center;gap:12px;padding:15px 20px;border:1px solid var(--line-2);border-radius:12px;font-size:15px;background:rgba(14,12,16,.6)}
+.pill b{color:var(--amber-soft);font-weight:600}
+.pill .tick{color:var(--amber);font-family:var(--mono)}
+.faq{max-width:780px}
+.faq details{border-bottom:1px solid var(--line-2);padding:6px 0}
+.faq summary{cursor:pointer;list-style:none;padding:20px 4px;font-size:17px;font-weight:600;display:flex;align-items:center;gap:16px;transition:color .15s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:var(--mono);color:var(--amber);font-size:14px;border:1px solid var(--line);border-radius:8px;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 30px}
+.faq summary:hover{color:var(--amber-soft)}
+.faq details[open] summary{color:var(--amber-soft)}
+.faq details p{padding:0 4px 22px 50px;color:var(--paper-dim);font-size:15px;max-width:38em}
+footer{border-top:1px solid var(--line-2);padding:52px 0 64px;margin-top:40px}
+.foot{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+.foot .logo{font-size:19px}
+.foot small{display:block;color:var(--paper-faint);font-family:var(--mono);font-size:12px;margin-top:10px}
+.foot nav{display:flex;gap:24px;flex-wrap:wrap}
+.foot nav a{color:var(--paper-dim);text-decoration:none;font-size:14.5px}
+.foot nav a:hover{color:var(--amber-soft)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+@media(max-width:900px){
+  .scene{grid-template-columns:1fr;padding:26px 22px;gap:0}
+  .scene img{margin-top:20px}
+  .feat-grid{grid-template-columns:1fr}
+  .privacy-band{grid-template-columns:1fr;padding:40px 30px}
+  .bar nav > a{display:none}
+  section{padding:64px 0}
+  .hero{padding:64px 0 24px}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="/ja.html"><span class="dot"></span>KenjaPDF</a>
+    <nav>
+      <a href="#workflow">ワークフロー</a>
+      <a href="#features">機能</a>
+      <a href="#privacy">プライバシー</a>
+      <a href="#faq">FAQ</a>
+      <details class="lang-menu">
+        <summary>Language</summary>
+        <div class="lang-pop">
+          <a href="/" hreflang="en">English</a>
+          <a href="/zh.html" hreflang="zh-Hans">简体中文</a>
+          <a href="/ja.html" hreflang="ja" aria-current="page">日本語</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section class="hero" id="top">
+    <div class="tc rv">EN → 日本語 · オンデバイス · PDF</div>
+    <h1 class="rv d1">あらゆる PDF を、<br><em>あなたの言語で。</em></h1>
+    <p class="sub rv d2">
+      KenjaPDF は<strong>翻訳を内蔵した Mac 用 PDF リーダー</strong>です。
+      書類をドラッグしてワンタップ——<strong>原文と訳文が並んで表示</strong>されます。
+      スクロールは同期、レイアウトは保持、アップロードは一切なし。
+    </p>
+    <div class="cta-row rv d3">
+      <span class="cta-soon"><span class="tick"></span>近日 Mac App Store で公開予定</span>
+      <span class="cta-note">翻訳には macOS 26+ · アカウントもキーも不要</span>
+    </div>
+
+    <figure class="screen rv d3">
+      <img src="assets/dual.png" alt="KenjaPDF の二段組表示：左に英語の原文 PDF、右に日本語訳が並び、同期してスクロールする" width="2560" height="1600" fetchpriority="high">
+      <div class="rec"><i></i>オンデバイス</div>
+      <div class="tcode">EN → 日本語</div>
+      <div class="cap">
+        <span>読書も翻訳も、この Mac の中だけで完結する</span>
+        <span>Your documents never leave your Mac</span>
+        <span>阅读与翻译，全部在本机完成</span>
+        <span>—— KenjaPDF、賢者の読書机</span>
+      </div>
+    </figure>
+  </section>
+
+  <section id="workflow">
+    <div class="sec-head rv"><span class="idx">01</span><h2>二ステップ、静かなウィンドウひとつ。</h2></div>
+    <p class="sec-lead rv">外国語の PDF から対訳リーディングまで、アプリの外に出ることなく——読んで、翻訳して、書き出す。</p>
+    <div class="scenes">
+      <article class="scene rv">
+        <div>
+          <span class="tag">ステップ 01 · 読書</span>
+          <h3>クリーンでミニマルなリーダー</h3>
+          <p>PDF をウィンドウにドラッグ、または ⌘O。連続スクロール、折りたたみできるサイドバー（サムネイル＋アウトライン）、自由なズーム、ページラベル、印刷 ⌘P——パスワード保護されたファイルも入力を求めてロック解除します。</p>
+        </div>
+        <img src="assets/read.png" alt="KenjaPDF のリーディング画面：英語の PDF と、サムネイルとアウトラインを示す明るいサイドバー、ミニマルなツールバー" loading="lazy" width="2560" height="1600">
+      </article>
+      <article class="scene rv d1">
+        <div>
+          <span class="tag">ステップ 02 · 翻訳</span>
+          <h3>原文と訳文を、並べて</h3>
+          <p>言語ペアを選び（原文言語は自動検出）、「翻訳」を押すだけ。Apple のオンボードエンジンが書類全体を翻訳し、結果は原文の隣に同期スクロールで開きます。ボタンひとつで二段組 / 訳文のみ / 原文のみを切り替え、訳文 PDF や原文・訳文交互のバイリンガル PDF として書き出せます。</p>
+        </div>
+        <img src="assets/dual.png" alt="KenjaPDF の二段組ビュー：左に英語原文、右に中国語訳が同期スクロール" loading="lazy" width="2560" height="1600">
+      </article>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="sec-head rv"><span class="idx">02</span><h2>母語ではない文書を読む人のために</h2></div>
+    <p class="sec-lead rv">クラウドのダッシュボードではありません——2 つのことをきちんとこなす、小さなネイティブ Mac ツールです。</p>
+    <div class="feat-grid rv">
+      <div class="feat">
+        <span class="k">翻訳</span>
+        <h3>常に端末上で</h3>
+        <p>翻訳は Apple のシステムエンジンが Mac の上で実行します。書類がアップロードされることはありません。言語ペアの初回翻訳時に、macOS 自身が小さな言語パックをダウンロードする場合があります。</p>
+      </div>
+      <div class="feat">
+        <span class="k">言語</span>
+        <h3>20 以上の言語を自動検出</h3>
+        <p>原文言語は自動認識（手動指定も可）。翻訳先はシステムの優先言語がデフォルトで、対応リストは macOS から直接取得、表示名はお使いのロケールに従います。</p>
+      </div>
+      <div class="feat">
+        <span class="k">同期</span>
+        <h3>二段組、息の合ったスクロール</h3>
+        <p>原文と訳文は双方向で同期スクロールし、ズームもパネル間でミラーされます。ボタンひとつで二段組 / 訳文のみ / 原文のみを巡回切り替え。</p>
+      </div>
+      <div class="feat">
+        <span class="k">レイアウト</span>
+        <h3>ページは元のまま</h3>
+        <p>訳文は各段落の元の矩形に書き戻されます。ジオメトリ・余白・ベクターグラフィックはそのまま——訳文は原文と同じ版面で読めます。</p>
+      </div>
+      <div class="feat">
+        <span class="k">数式</span>
+        <h3>数式は数式のまま</h3>
+        <p>数式行（LaTeX、MathType、Cambria Math フォント）を検出してそのまま残し、周囲の本文だけを翻訳。論文やレポートのために：数式を壊すくらいなら、その行は翻訳しません。</p>
+      </div>
+      <div class="feat">
+        <span class="k">書き出し</span>
+        <h3>訳文を持って歩く</h3>
+        <p>訳文のみの PDF、または原文ページと訳文ページを交互に並べたバイリンガル版を書き出せます。どこでも読めて、プレビューで注釈でき、そのまま共有できます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="sec-head rv"><span class="idx">03</span><h2>プライバシーはデフォルトで</h2></div>
+    <div class="privacy-band rv">
+      <div>
+        <h2>アカウントなし。アップロードなし。<em>トラッキングなし。</em></h2>
+        <p>KenjaPDF は良い道具らしく振る舞います——あなたのマシンで仕事をして、誰とも通信しません。翻訳は Apple のオンボードエンジンで実行されるため、書類が Mac の外に出ることはありません。ログインするものも、漏洩するものもありません。</p>
+        <p style="margin-top:18px"><a href="privacy.html" style="color:var(--amber-soft)">プライバシーポリシーを読む →</a></p>
+      </div>
+      <div class="pill-list">
+        <div class="pill"><span class="tick">✓</span><span><b>翻訳：</b>100% 端末上で実行</span></div>
+        <div class="pill"><span class="tick">✓</span><span><b>書類：</b>アップロードなし</span></div>
+        <div class="pill"><span class="tick">✓</span><span><b>アカウント・キー：</b>不要——設定するものもなし</span></div>
+        <div class="pill"><span class="tick">✓</span><span><b>テレメトリ：</b>一切なし</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="sec-head rv"><span class="idx">04</span><h2>よくある質問</h2></div>
+    <div class="faq rv">
+      <details open>
+        <summary>KenjaPDF は書類をどこかにアップロードしますか？</summary>
+        <p>いいえ。閲覧・レイアウト解析・翻訳はすべて Mac 上で実行され、翻訳には Apple のシステム内蔵エンジンを使います。アカウントも分析もトラッキングもなく、App Store のプライバシーラベルは「データ収集なし」です。</p>
+      </details>
+      <details>
+        <summary>どの言語に翻訳できますか？</summary>
+        <p>macOS のシステム翻訳による 20 以上の言語に対応し、対応リストはシステムから直接取得します。原文言語は自動検出（手動指定も可）、翻訳先はシステムの優先言語がデフォルトです。言語ペアの初回翻訳時に、macOS が小さな言語パックをダウンロードする場合があります。</p>
+      </details>
+      <details>
+        <summary>アカウントや API キーは必要ですか？</summary>
+        <p>不要です。翻訳には macOS 内蔵のエンジンを使うため、サインインも API キーもサブスクリプションもありません。言語パックがない場合は、システムによる一回限りのダウンロードを案内して、そのあと自動で再試行します。</p>
+      </details>
+      <details>
+        <summary>元のレイアウトは保持されますか？</summary>
+        <p>はい。訳文はページのコピー上で各段落の元の位置に書き戻されるため、ジオメトリ・余白・ベクターグラフィックはそのまま残ります。数式行は自動検出してそのまま保持するため、翻訳後も数式は壊れません——論文や文献で特に重要です。</p>
+      </details>
+      <details>
+        <summary>スキャンした PDF にも対応しますか？</summary>
+        <p>KenjaPDF が翻訳するのは PDF のテキスト層です。テキストが埋め込まれていない画像のみのスキャンは、このバージョンでは翻訳できません——先に OCR におかけください。</p>
+      </details>
+      <details>
+        <summary>動作環境を教えてください。</summary>
+        <p>オンボード翻訳には Apple の Translation フレームワークを使用するため、macOS 26 以降が必要です。閲覧・アウトライン・書き出しは macOS 13 以降で動作します。</p>
+      </details>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="/ja.html"><span class="dot"></span>KenjaPDF</a>
+      <small>© 2026 KenjaHub · 賢者の読書机</small>
+    </div>
+    <nav>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="https://github.com/KenjaHub" rel="noopener">GitHub</a>
+      <a href="https://github.com/KenjaHub/KenjaPDF/issues" rel="noopener">サポート</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.addEventListener('click',e=>{document.querySelectorAll('details.lang-menu[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open')})});
+</script>
+</body>
+</html>
