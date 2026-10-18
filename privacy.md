@@ -2,7 +2,7 @@
 
 **Effective date: October 18, 2026**
 
-**The short version: KenjaPDF collects nothing.** There are no accounts, no analytics, no ads, and no tracking. Your documents never leave your Mac — reading and translation both run entirely on your device.
+**The short version: KenjaPDF collects nothing.** There are no accounts, no analytics, no ads, and no tracking. Your documents never leave your device — reading and translation both run entirely on it.
 
 KenjaPDF is a PDF reader with on-device translation for macOS, developed by KenjaHub ("we", "us"). This policy explains what happens to your data when you use the app.
 
@@ -19,20 +19,20 @@ In particular, KenjaPDF does **not** include:
 
 This matches our App Store privacy declaration: *Data Not Collected*.
 
-## 2. Documents stay on your Mac
+## 2. Documents stay on your device
 
-Everything KenjaPDF does with your documents happens locally on your Mac:
+Everything KenjaPDF does with your documents happens locally on your device:
 
 - **Reading, layout analysis and translation all run on device.** Translation uses Apple's system translation engine, part of macOS, which executes locally.
 - **Documents are never uploaded.** There is no server, no sync, no cloud — exported files are written wherever you choose on your disk.
 
 ## 3. Translation language packs
 
-The first time you translate a given language pair, macOS may download a small on-device language pack (a few megabytes). This download is performed and managed by the operating system itself, not by KenjaPDF, and is governed by Apple's privacy policy. Once installed, translation runs entirely offline on your Mac.
+The first time you translate a given language pair, macOS may download a small on-device language pack (a few megabytes). This download is performed and managed by the operating system itself, not by KenjaPDF, and is governed by Apple's privacy policy. Once installed, translation runs entirely offline on your device.
 
-## 4. Data stored on your Mac
+## 4. Data stored on your device
 
-The following data is stored only on your Mac, under your full control:
+The following data is stored only on your device, under your full control:
 
 - **App settings** — your preferred source and target languages
 - **Documents and exports** — the PDFs you open and the files you export stay wherever you saved them; KenjaPDF keeps no copy
@@ -49,7 +49,7 @@ KenjaPDF is rated 4+ and is not directed at children. Since the app collects no 
 
 ## 7. Your control
 
-Because everything lives on your Mac, you are in full control at all times: open, copy, export or delete your documents whenever you like, in the Finder like any other file.
+Because everything lives on your device, you are in full control at all times: open, copy, export or delete your documents whenever you like, in the Finder like any other file.
 
 ## 8. Changes to this policy
 
